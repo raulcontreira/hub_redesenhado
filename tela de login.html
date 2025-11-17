@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Simples</title>
+    <style>
+        /* Reset básico para garantir que a página comece limpa */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilo para o corpo da página */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex; /* Permite centralizar o conteúdo facilmente */
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+            min-height: 100vh; /* Ocupa a altura total da viewport */
+            background-color: #f4f7f6; /* Fundo cinza claro */
+            color: #333;
+        }
+
+        /* Estilo para o contêiner principal do formulário */
+        .login-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px; /* Bordas arredondadas */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            width: 100%;
+            max-width: 380px; /* Largura máxima para a caixa de login */
+        }
+
+        /* Estilo para o título */
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1a73e8; /* Cor azul destacada */
+            font-size: 24px;
+        }
+
+        /* Estilo para os grupos de formulário (label + input) */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        /* Estilo para os rótulos (labels) */
+        label {
+            display: block; /* Ocupa a linha toda */
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Estilo para os campos de entrada (inputs) */
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        /* Efeito de foco (quando o campo está selecionado) */
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #1a73e8; /* Muda para azul */
+            outline: none; /* Remove o contorno padrão do navegador */
+        }
+
+        /* Estilo para o botão de envio (submit) */
+        .btn-login {
+            width: 100%;
+            background-color: #1a73e8;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Efeito hover (ao passar o mouse sobre o botão) */
+        .btn-login:hover {
+            background-color: #0c62c9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Entrar no Sistema</h2>
+
+        <form action="#" method="POST">
+            
+            <div class="input-group">
+                <label for="username">Nome de Usuário</label>
+                <input type="text" id="username" name="username" placeholder="Digite seu usuário" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+            </div>
+
+            <button type="submit" class="btn-login">Login</button>
+            
+        </form>
+    </div>
+
+</body>
+</html>
