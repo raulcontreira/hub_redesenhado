@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>César Lattes - Memorial e Biografia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        /* Header */
+        header {
+            background-color: #1a3a52;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #4da6ff;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: white;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: #667eea;
+        }
+
+        /* Section Styles */
+        section {
+            background-color: white;
+            margin: 2rem 0;
+            padding: 3rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #1a3a52;
+        }
+
+        section h3 {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        /* Biografia Section */
+        .bio-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .bio-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .bio-text p {
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        .bio-image {
+            text-align: center;
+        }
+
+        .bio-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Contribuições Section */
+        .contributions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .contribution-box {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .contribution-box h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .contribution-box p {
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        /* Galeria */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            padding: 1rem;
+            background-color: #f8f9fa;
+            text-align: center;
+            font-weight: 500;
+            color: #333;
+        }
+
+        /* Vídeos Section */
+        .videos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-info h4 {
+            margin-bottom: 0.5rem;
+            color: #1a3a52;
+        }
+
+        .video-info p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .video-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .video-link:hover {
+            color: #764ba2;
+        }
+
+        /* Legado Section */
+        .legacy-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .legacy-box {
+            padding: 2rem;
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+        }
+
+        .legacy-box h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .legacy-box p {
+            line-height: 1.8;
+        }
+
+        .legacy-box-1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .legacy-box-2 {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .legacy-box-3 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a3a52;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #4da6ff;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #4da6ff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 2rem;
+            text-align: center;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav a {
+                margin-left: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .bio-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contributions {
+                grid-template-columns: 1fr;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">César Lattes</div>
+            <nav>
+                <a href="#biografia">Biografia</a>
+                <a href="#ciencia">Ciência</a>
+                <a href="#galeria">Galeria</a>
+                <a href="#videos">Vídeos</a>
+                <a href="#legado">Legado</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>César Lattes</h1>
+            <p>O Físico Brasileiro que Descobriu o Píon</p>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+                Cesare Mansueto Giulio Lattes (1924-2005) foi um dos maiores cientistas brasileiros.
+                <br>Codescobridor do méson-π, revolucionou a física experimental.
+            </p>
+            <div class="hero-buttons">
+                <a href="#biografia" class="btn btn-primary">Saiba Mais</a>
+                <a href="#videos" class="btn btn-secondary">Vídeos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Biografia -->
+    <section id="biografia">
+        <div class="container">
+            <h2>Biografia</h2>
+            <div class="bio-content">
+                <div class="bio-text">
+                    <div>
+                        <h3>Primeiros Anos</h3>
+                        <p>
+                            Nascido em Curitiba no dia 11 de julho de 1924, César Lattes era filho de imigrantes italianos. 
+                            Seu pai, Giuseppe Lattes, foi gerente do Banco Francês e Italiano, onde o jovem César conheceu 
+                            o cientista Gleb Wataghin, que se tornaria seu mentor.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Formação Acadêmica</h3>
+                        <p>
+                            Lattes graduou-se em Física pela Universidade de São Paulo aos 19 anos de idade, em 1943, 
+                            obtendo notas excelentes e se destacando no campo experimental. Ele foi fruto de uma das gerações 
+                            de físicos formada por Wataghin.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Pesquisa em Raios Cósmicos</h3>
+                        <p>
+                            Entre 1946 e 1948, Lattes iniciou sua principal linha de pesquisa sobre raios cósmicos. 
+                            Montou um laboratório a mais de 5.000 metros de altitude em Chacaltaya, nos Andes bolivianos, 
+                            onde empregou chapas fotográficas para registrar os raios cósmicos.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bio-image">
+                    <img src="images/OlESvgFCahW0.jpg" alt="César Lattes">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contribuições Científicas -->
+    <section id="ciencia">
+        <div class="container">
+            <h2>Contribuições Científicas</h2>
+            <div class="contributions">
+                <div class="contribution-box">
+                    <h4>A Descoberta do Píon</h4>
+                    <p>
+                        Em 1947, trabalhando na Universidade de Bristol na Inglaterra, Lattes melhorou uma emulsão nuclear 
+                        usada por Cecil Frank Powell. Com essas chapas aprimoradas, realizou a grande descoberta experimental: 
+                        o méson-π (píon), uma partícula subatômica fundamental. Essa descoberta foi crucial para a compreensão 
+                        das forças nucleares.
+                    </p>
+                </div>
+
+                <div class="contribution-box">
+                    <h4>Produção Artificial do Píon</h4>
+                    <p>
+                        Um ano após a descoberta inicial, trabalhando com Eugene H. Gardner na Universidade da Califórnia em 
+                        Berkeley, Lattes detectou a produção artificial de partículas píon no ciclotron do laboratório, 
+                        bombardeando átomos de carbono com partículas alfa.
+                    </p>
+                </div>
+
+                <div class="contribution-box">
+                    <h4>Prêmio Nobel</h4>
+                    <p>
+                        A descoberta do píon levou ao Prêmio Nobel de Física de 1950, concedido a Cecil Frank Powell, 
+                        líder do grupo de pesquisa. Embora Lattes fosse o principal pesquisador, a política do Comitê do 
+                        Nobel era premiar apenas o líder. Lattes foi indicado 7 vezes ao Nobel.
+                    </p>
+                </div>
+
+                <div class="contribution-box">
+                    <h4>Desenvolvimento da Física Brasileira</h4>
+                    <p>
+                        Retornando ao Brasil, Lattes continuou sua carreira em instituições como Unicamp, USP, CBPF e UFRJ, 
+                        contribuindo ativamente para a formação de novas gerações de físicos e para o desenvolvimento da 
+                        física atômica no país.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria -->
+    <section id="galeria">
+        <div class="container">
+            <h2>Galeria Fotográfica</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="images/6NI3ba2o0tCB.png" alt="César Lattes - Centenary">
+                    <div class="gallery-caption">César Lattes, 100: O físico que via além</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/X8weIN5pik4K.jpg" alt="César Lattes em seu laboratório">
+                    <div class="gallery-caption">Lado B' de Cesar Lattes: intensa batalha pela ciência</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/OlESvgFCahW0.jpg" alt="Retrato de César Lattes">
+                    <div class="gallery-caption">Retrato do físico brasileiro</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/jRlSA1YIGbcr.jpg" alt="César Lattes em sua trajetória">
+                    <div class="gallery-caption">A trajetória do brasileiro injustiçado</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vídeos -->
+    <section id="videos">
+        <div class="container">
+            <h2>Vídeos e Entrevistas</h2>
+            <div class="videos">
+                <div class="video-card">
+                    <div class="video-placeholder">▶</div>
+                    <div class="video-info">
+                        <h4>Cesar Lattes responde: Por que não ganhou o Prêmio Nobel</h4>
+                        <p>
+                            Vídeo de 1996, recuperado pela TV Unicamp, onde César Lattes explica sua perspectiva 
+                            sobre a não concessão do Prêmio Nobel.
+                        </p>
+                        <a href="https://www.youtube.com/watch?v=ZhMVjFhz9Lo" target="_blank" class="video-link">
+                            Assistir no YouTube →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-placeholder">▶</div>
+                    <div class="video-info">
+                        <h4>Chico Pinheiro entrevista César Lattes - 20/06/1999</h4>
+                        <p>
+                            Entrevista do programa Espaço Aberto com o renomado jornalista Chico Pinheiro, 
+                            onde Lattes discute sua vida e carreira.
+                        </p>
+                        <a href="https://www.youtube.com/watch?v=1NkwEAGp4eU" target="_blank" class="video-link">
+                            Assistir no YouTube →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-placeholder">▶</div>
+                    <div class="video-info">
+                        <h4>Cesar Lattes: A Trajetória do Gênio Brasileiro da Física</h4>
+                        <p>
+                            Documentário que retrata a vida e a carreira científica de César Lattes, 
+                            um dos maiores nomes da física brasileira.
+                        </p>
+                        <a href="https://www.youtube.com/watch?v=cggpeUC44qI" target="_blank" class="video-link">
+                            Assistir no YouTube →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-placeholder">▶</div>
+                    <div class="video-info">
+                        <h4>Homenagem do CNPq ao Centenário de César Lattes</h4>
+                        <p>
+                            Homenagem oficial do Conselho Nacional de Desenvolvimento Científico e Tecnológico 
+                            ao centenário de nascimento de César Lattes.
+                        </p>
+                        <a href="https://www.youtube.com/watch?v=sj8T2hvDpYI" target="_blank" class="video-link">
+                            Assistir no YouTube →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legado -->
+    <section id="legado">
+        <div class="container">
+            <h2>Legado e Homenagens</h2>
+            <div class="legacy-boxes">
+                <div class="legacy-box legacy-box-1">
+                    <h3>Plataforma Lattes</h3>
+                    <p>
+                        Em sua homenagem, o CNPq deu seu nome ao sistema utilizado para cadastrar cientistas, 
+                        pesquisadores e estudantes. Uma base de dados essencial para a ciência brasileira.
+                    </p>
+                </div>
+
+                <div class="legacy-box legacy-box-2">
+                    <h3>Criação do CNPq</h3>
+                    <p>
+                        Lattes foi um dos principais responsáveis pela criação do Conselho Nacional de 
+                        Desenvolvimento Científico e Tecnológico, fundamental para a ciência brasileira.
+                    </p>
+                </div>
+
+                <div class="legacy-box legacy-box-3">
+                    <h3>Reconhecimento Internacional</h3>
+                    <p>
+                        César Lattes é um dos poucos brasileiros a figurar na Biographical Encyclopedia de 
+                        Isaac Asimov e na Encyclopædia Britannica.
+                    </p>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; padding: 2rem; background-color: #f8f9fa; border-radius: 8px;">
+                <h3 style="color: #1a3a52; text-align: center;">Carreira no Brasil</h3>
+                <p style="text-align: justify; margin-top: 1rem;">
+                    Após suas descobertas internacionais, Lattes retornou ao Brasil, onde continuou sua carreira 
+                    em instituições de renome como a Universidade Estadual de Campinas (Unicamp), Universidade de 
+                    São Paulo (USP), Centro Brasileiro de Pesquisas Físicas (CBPF) e Universidade Federal do Rio de 
+                    Janeiro (UFRJ). Seu trabalho foi fundamental para o desenvolvimento da física atômica no país, 
+                    e ele foi um grande líder no meio científico brasileiro, contribuindo ativamente para a formação 
+                    de novas gerações de físicos.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>César Lattes Memorial</h4>
+                    <p>
+                        Um site dedicado à memória e ao legado do físico brasileiro César Lattes, 
+                        codescobridor do píon.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#biografia">Biografia</a></li>
+                        <li><a href="#ciencia">Contribuições</a></li>
+                        <li><a href="#galeria">Galeria</a></li>
+                        <li><a href="#videos">Vídeos</a></li>
+                        <li><a href="#legado">Legado</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Referências</h4>
+                    <ul>
+                        <li><a href="https://pt.wikipedia.org/wiki/C%C3%A9sar_Lattes" target="_blank">Wikipedia</a></li>
+                        <li><a href="https://memoria.cnpq.br/web/portal-lattes/cesare-giulio-lattes" target="_blank">Portal Memória CNPq</a></li>
+                        <li><a href="https://www.gov.br/cbpf/pt-br" target="_blank">CBPF</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 César Lattes Memorial. Desenvolvido com dedicação à memória de um dos maiores cientistas brasileiros.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
