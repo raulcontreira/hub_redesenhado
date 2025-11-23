@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Brasília Resort Hotel Fazenda - Experiência luxuosa em harmonia com a natureza">
+    <title>Brasília Resort Hotel Fazenda - Hospedagem Rural Luxuosa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+    /* ============================================
+   BRASÍLIA RESORT - LUXURY HOTEL THEME
+   Colors: Dark Green (#1B5E20), Gold (#D4AF37)
+   ============================================ */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f7f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.section-title {
+    font-size: 3rem;
+    color: #1B5E20;
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+
+.section-title.centered {
+    text-align: center;
+}
+
+.section-subtitle {
+    font-size: 1.3rem;
+    color: #D4AF37;
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* ============================================
+   NAVIGATION BAR
+   ============================================ */
+
+.navbar {
+    background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(27, 94, 32, 0.2);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #D4AF37;
+    padding: 5px;
+}
+
+.brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #D4AF37;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #D4AF37;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #D4AF37;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.cta-button {
+    background: #D4AF37;
+    color: #1B5E20;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+}
+
+.cta-button:hover {
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(27, 94, 32, 0.5), rgba(27, 94, 32, 0.5)), 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%231B5E20;stop-opacity:0.8" /><stop offset="100%" style="stop-color:%232E7D32;stop-opacity:0.8" /></linearGradient></defs><rect width="1200" height="600" fill="url(%23grad)"/></svg>');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(27, 94, 32, 0.7) 0%, rgba(46, 125, 50, 0.7) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    letter-spacing: 2px;
+}
+
+.hero-subtitle {
+    font-size: 1.8rem;
+    color: #D4AF37;
+    margin-bottom: 40px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.cta-button-large {
+    background: #D4AF37;
+    color: #1B5E20;
+    border: none;
+    padding: 18px 50px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.cta-button-large:hover {
+    background: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+
+.about {
+    padding: 100px 0;
+    background: #f9f7f4;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-text h2 {
+    margin-bottom: 30px;
+}
+
+.about-description {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.feature-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(27, 94, 32, 0.1);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(27, 94, 32, 0.15);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.feature-text {
+    color: #1B5E20;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.about-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(27, 94, 32, 0.2);
+}
+
+.image-placeholder {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: linear-gradient(135deg, #1B5E20, #2E7D32);
+    min-height: 400px;
+}
+
+/* ============================================
+   SERVICES SECTION
+   ============================================ */
+
+.services {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+    color: #fff;
+}
+
+.services .section-title {
+    color: #fff;
+}
+
+.services .section-subtitle {
+    color: #D4AF37;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 40px 30px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    background: rgba(212, 175, 55, 0.15);
+    transform: translateY(-10px);
+    border-color: #D4AF37;
+}
+
+.service-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.service-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #D4AF37;
+}
+
+.service-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ============================================
+   GALLERY SECTION
+   ============================================ */
+
+.gallery {
+    padding: 100px 0;
+    background: #f9f7f4;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 300px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(27, 94, 32, 0.15);
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    background: linear-gradient(135deg, #1B5E20, #2E7D32);
+}
+
+.gallery-item:hover .gallery-image {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(27, 94, 32, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay p {
+    color: #D4AF37;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ============================================
+   TESTIMONIALS SECTION
+   ============================================ */
+
+.testimonials {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+    color: #fff;
+}
+
+.testimonials .section-title {
+    color: #fff;
+}
+
+.testimonials .section-subtitle {
+    color: #D4AF37;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    background: rgba(212, 175, 55, 0.15);
+    transform: translateY(-5px);
+}
+
+.stars {
+    color: #D4AF37;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.95);
+    font-style: italic;
+}
+
+.testimonial-author {
+    color: #D4AF37;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   CONTACT SECTION
+   ============================================ */
+
+.contact {
+    padding: 100px 0;
+    background: #f9f7f4;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 60px;
+}
+
+.contact-info {
+    display: grid;
+    gap: 40px;
+}
+
+.info-item {
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(27, 94, 32, 0.1);
+    border-left: 4px solid #D4AF37;
+}
+
+.info-title {
+    color: #1B5E20;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.info-text {
+    color: #555;
+    font-size: 1.05rem;
+}
+
+.contact-form {
+    display: grid;
+    gap: 20px;
+}
+
+.form-input,
+.form-textarea {
+    padding: 15px 20px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #D4AF37;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+.contact-form .cta-button-large {
+    margin-top: 10px;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+    background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+    color: #fff;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section {
+    padding: 20px;
+}
+
+.footer-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #D4AF37;
+}
+
+.footer-text {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #D4AF37;
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    padding-top: 30px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 15px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .services-grid,
+    .testimonials-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+
+    .cta-button-large {
+        padding: 15px 30px;
+        font-size: 0.95rem;
+    }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mb-40 {
+    margin-bottom: 40px;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <img src="logo.svg" alt="Brasília Resort" class="logo">
+                <span class="brand-name">Brasília Resort</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#services" class="nav-link">Serviços</a></li>
+                <li><a href="#gallery" class="nav-link">Galeria</a></li>
+                <li><a href="#testimonials" class="nav-link">Depoimentos</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+            <button class="cta-button">Reservar Agora</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Bem-vindo ao Brasília Resort</h1>
+            <p class="hero-subtitle">Experiência Luxuosa em Harmonia com a Natureza</p>
+            <button class="cta-button-large">Descubra Nossos Serviços</button>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">Sobre o Brasília Resort</h2>
+                    <p class="about-description">
+                        O Brasília Resort Hotel Fazenda é um empreendimento das Organizações Paulo Octávio, 
+                        um conglomerado empresarial fundado em 1975 com sede em Brasília. Localizado a apenas 
+                        30 minutos do centro da capital federal, nosso resort oferece uma experiência única de 
+                        hospedagem rural luxuosa.
+                    </p>
+                    <p class="about-description">
+                        Cercado por áreas verdes, nosso resort combina o conforto e a elegância com a tranquilidade 
+                        da natureza. Cada detalhe foi cuidadosamente planejado para proporcionar aos nossos hóspedes 
+                        momentos inesquecíveis de relaxamento e diversão.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">🏡</span>
+                            <span class="feature-text">Bangalôs Luxuosos</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🌿</span>
+                            <span class="feature-text">Natureza Preservada</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">⭐</span>
+                            <span class="feature-text">Serviço Premium</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="resort-hero.jpg" alt="Brasília Resort" class="image-placeholder">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title centered">Nossos Serviços</h2>
+            <p class="section-subtitle">Experiências Únicas para Todos os Gostos</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏊</div>
+                    <h3 class="service-title">Bangalôs Luxuosos</h3>
+                    <p class="service-description">
+                        Bangalôs de madeira com dois quartos confortáveis, cozinha equipada e piscina aquecida exclusiva.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎣</div>
+                    <h3 class="service-title">Pesca Esportiva</h3>
+                    <p class="service-description">
+                        Explore a emoção da pesca esportiva em nosso lago natural com diversidade de peixes.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔥</div>
+                    <h3 class="service-title">Área VIP</h3>
+                    <p class="service-description">
+                        Churrasqueiras exclusivas com estrutura completa, banheiros próximos e iluminação especial.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🍽️</div>
+                    <h3 class="service-title">Almoço Caipira</h3>
+                    <p class="service-description">
+                        Buffet variado com comidas típicas da roça, cuidadosamente preparadas por nossos chefs.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🥾</div>
+                    <h3 class="service-title">Trilhas Ecológicas</h3>
+                    <p class="service-description">
+                        Explore a beleza intocada do cerrado em nossas trilhas com placas informativas sobre a flora.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎪</div>
+                    <h3 class="service-title">Playground</h3>
+                    <p class="service-description">
+                        Parque infantil com tobogãs, escorregadores, pontes e jogos interativos em areia de praia.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title centered">Galeria</h2>
+            <p class="section-subtitle">Conheça Nossos Espaços</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="gallery-1.jpg" alt="Vista Aérea do Resort" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <p>Vista Aérea do Resort</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="gallery-2.jpg" alt="Bangalô Luxuoso" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <p>Bangalô Luxuoso</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="gallery-3.jpg" alt="Piscina e Área de Lazer" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <p>Piscina e Área de Lazer</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="gallery-4.jpg" alt="Restaurante" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <p>Restaurante</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="gallery-5.jpg" alt="Trilhas Ecológicas" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <p>Trilhas Ecológicas</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="gallery-6.jpg" alt="Área VIP" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <p>Área VIP</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title centered">O Que Nossos Hóspedes Dizem</h2>
+            <p class="section-subtitle">Avaliações e Depoimentos</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "O visual do local é incrível. O paisagismo e jardim são bem cuidados. Os quartos são limpos 
+                        e conservados. Recomendo para quem busca relaxamento e contato com a natureza."
+                    </p>
+                    <p class="testimonial-author">— Maria Silva</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Experiência maravilhosa! O resort oferece uma estrutura completa com piscinas, áreas verdes 
+                        e restaurante. A equipe é atenciosa e o ambiente é muito aconchegante. Voltarei com certeza!"
+                    </p>
+                    <p class="testimonial-author">— João Santos</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Perfeito para um fim de semana em família! As crianças adoraram o playground e as trilhas. 
+                        O almoço caipira foi delicioso e a piscina aquecida dos bangalôs é um luxo. Muito bom!"
+                    </p>
+                    <p class="testimonial-author">— Ana Costa</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Lugar incrível para relaxar! A natureza ao redor é linda, os bangalôs são confortáveis e 
+                        a comida é excelente. Voltei várias vezes e sempre tenho a mesma sensação de paz e bem-estar."
+                    </p>
+                    <p class="testimonial-author">— Carlos Oliveira</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Ótimo custo-benefício! O resort oferece muitas opções de lazer e diversão. A pesca esportiva 
+                        foi incrível e a área VIP para churrascos é perfeita para reunir a família. Recomendo!"
+                    </p>
+                    <p class="testimonial-author">— Patricia Mendes</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Refúgio perfeito perto de Brasília! A estrutura é completa, o atendimento é excelente e 
+                        o ambiente é muito tranquilo. Ideal para quem quer escapar da rotina e aproveitar a natureza."
+                    </p>
+                    <p class="testimonial-author">— Roberto Alves</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title centered">Entre em Contato</h2>
+            <p class="section-subtitle">Estamos Prontos para Recebê-lo</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <h3 class="info-title">Telefone</h3>
+                        <p class="info-text">(61) 99333-7792</p>
+                    </div>
+                    <div class="info-item">
+                        <h3 class="info-title">Email</h3>
+                        <p class="info-text">contato@brasiliaresort.com.br</p>
+                    </div>
+                    <div class="info-item">
+                        <h3 class="info-title">Localização</h3>
+                        <p class="info-text">BR-060, Gama - Brasília, DF</p>
+                    </div>
+                    <div class="info-item">
+                        <h3 class="info-title">Horário de Funcionamento</h3>
+                        <p class="info-text">Segunda a Domingo: 8h às 22h</p>
+                    </div>
+                </div>
+                
+                <form class="contact-form">
+                    <input type="text" placeholder="Seu Nome" required class="form-input">
+                    <input type="email" placeholder="Seu Email" required class="form-input">
+                    <textarea placeholder="Sua Mensagem" rows="5" required class="form-textarea"></textarea>
+                    <button type="submit" class="cta-button-large">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">Brasília Resort</h4>
+                    <p class="footer-text">Hotel Fazenda Luxuoso em Harmonia com a Natureza</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#about">Sobre</a></li>
+                        <li><a href="#services">Serviços</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Redes Sociais</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" target="_blank">Facebook</a></li>
+                        <li><a href="#" target="_blank">Instagram</a></li>
+                        <li><a href="#" target="_blank">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Brasília Resort Hotel Fazenda. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
