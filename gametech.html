@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gametech - Lançamento Ark 2 e Ofertas Exclusivas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --dark-bg: #121212;
+            --primary-color: #e78850; /* Cor Laranja/Cobre do logo Gametech */
+            --secondary-color: #572e8b; /* Roxo Escuro */
+            --text-light: #ffffff;
+            --text-muted: #cccccc;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* 1. Menu com Listas */
+        header {
+            background-color: #1e1e1e;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section - Foco no Ark 2 */
+        #games-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1600x600?text=IMAGEM+DE+FUNDO+ARK+2') no-repeat center center/cover;
+            padding: 100px 5%;
+            text-align: center;
+            border-bottom: 5px solid var(--primary-color);
+        }
+
+        #games-section h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+        
+        #games-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: var(--text-muted);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            background-color: #ffaa76;
+        }
+
+        /* Seções de Conteúdo (Utilidades/Acessórios) */
+        .content-section {
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .content-section h2 {
+            font-size: 2em;
+            margin-bottom: 40px;
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* 2. Anúncio com Cards (Cadeira e Suporte) */
+        .product-card {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            width: 350px;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .product-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+
+        .product-card .price {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--text-light);
+            margin: 10px 0;
+            display: block;
+        }
+
+        .product-card .discount {
+            color: red;
+            font-weight: 700;
+        }
+
+        /* 3. Footer com Créditos */
+        footer {
+            background-color: #1e1e1e;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 20px 5%;
+            font-size: 0.9em;
+            border-top: 1px solid #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">GAMETECH</div>
+        <nav>
+            <ul>
+                <li><a href="#">HUB</a></li>
+                <li><a href="#games-section">Games</a></li>
+                <li><a href="#accessories-section">Acessórios</a></li>
+                <li><a href="#accessories-section">Utilidades</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="games-section">
+        <h1>ARK 2: O PRÓXIMO NÍVEL DE SOBREVIVÊNCIA</h1>
+        <p>A aguardada sequência com **Vin Diesel** chega à Gametech em **24 de Setembro de 2025**[cite: 36, 21]. Garanta seu acesso imediato e comece sua aventura!</p>
+        <a href="#" class="cta-button">FAZER PRÉ-VENDA AGORA</a>
+        <p style="margin-top: 20px; font-size: 0.9em;">Seja um dos primeiros a jogar! Vendas disponíveis imediatamente após o anúncio[cite: 37].</p>
+    </section>
+
+    <section id="accessories-section" class="content-section">
+        <h2>ACESSÓRIOS E UTILIDADES EM DESTAQUE</h2>
+        <div class="card-container">
+            
+            <div class="product-card">
+                <img src="https://via.placeholder.com/350x200?text=CADEIRA+GAMER+SNAKE" alt="Cadeira Gamer Snake Lancaster">
+                <h3>Cadeira Gamer Snake Lancaster</h3>
+                <p>O conforto que você merece. Encosto reclinável em 135º e suporte até **120 kg**[cite: 65]. Ergonomia e resistência valorizadas pelo público gamer[cite: 66].</p>
+                <span class="price">R$ 799,90 <span class="discount">(-20%)</span></span>
+                <a href="#" class="cta-button" style="background-color: var(--secondary-color); color: var(--text-light);">COMPRAR COM DESCONTO</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/350x200?text=SUPORTE+GAMING+BG500" alt="Suporte Gaming BG500">
+                <h3>Suporte Gaming BG500</h3>
+                <p>Refrigeração máxima para seu notebook! Possui **6 fans** (2400 RPM), iluminação **RGB em 7 modos** e **6 níveis de altura** ajustáveis[cite: 74, 75].</p>
+                <span class="price">R$ 149,90</span>
+                <a href="#" class="cta-button">ADICIONAR AO CARRINHO</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Gametech - Todos os direitos reservados. | Desenvolvido por Raul Duarte - CEUB Educação Superior.</p>
+        <p>Email:raul.duarte@sempreceub.com</p>
+    </footer>
+
+</body>
+</html>
