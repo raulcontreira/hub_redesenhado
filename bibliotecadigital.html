@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Biblioteca Digital - Acesse milhares de livros em diferentes categorias">
+    <meta name="keywords" content="biblioteca, livros, digital, infantil, didático, matemática, física">
+    <title>Biblioteca Digital - Seu Portal de Leitura</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* ==================== VARIÁVEIS CSS ==================== */
+:root {
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --success-color: #4caf50;
+    --danger-color: #f44336;
+    --warning-color: #ff9800;
+    --info-color: #2196f3;
+    --light-color: #f5f5f5;
+    --dark-color: #212529;
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+/* ==================== RESET E ESTILOS GLOBAIS ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #143f77;
+}
+
+.lead-text-muted-w{
+    color: #554a91;
+}
+
+/* ==================== NAVBAR ==================== */
+.navbar {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(102, 126, 234, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: var(--transition);
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+}
+
+.nav-link {
+    color: #fff !important;
+    margin: 0 0.5rem;
+    position: relative;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: #667eea !important;
+}
+
+/* ==================== HERO SECTION ==================== */
+.hero-section {
+    padding: 0 !important;
+}
+
+.carousel {
+    width: 100%;
+}
+
+.carousel-item {
+    position: relative;
+}
+
+.carousel-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.carousel-item > * {
+    position: relative;
+    z-index: 2;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background: rgba(102, 126, 234, 0.8);
+}
+
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: var(--transition);
+}
+
+.carousel-indicators button.active {
+    background-color: #667eea;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+/* ==================== SEÇÕES ==================== */
+section {
+    scroll-margin-top: 80px;
+}
+
+section h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 2px;
+}
+
+/* ==================== CARDS DE LIVROS ==================== */
+.book-card {
+    border: none;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition);
+    cursor: pointer;
+    background: #fff;
+}
+
+.book-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2) !important;
+}
+
+.book-cover {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.book-card:hover .book-cover {
+    transform: scale(1.05);
+}
+
+.book-cover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.book-card:hover .book-cover::before {
+    opacity: 1;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #4382ca;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+}
+
+/* ==================== BOTÕES ==================== */
+.btn {
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: var(--transition);
+    border: none;
+    padding: 0.6rem 1.2rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #764ba2, #667eea);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.btn-light {
+    background: white;
+    color: #667eea;
+    font-weight: 600;
+}
+
+.btn-light:hover {
+    background: #f5f5f5;
+    transform: translateY(-2px);
+}
+
+.btn-sm {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+}
+
+/* ==================== FORMULÁRIOS ==================== */
+.form-control,
+.form-select {
+    border: 2px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.form-label {
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 0.5rem;
+}
+
+.invalid-feedback {
+    display: block;
+    color: #f44336;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+/* ==================== MODAL ==================== */
+.modal-content {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+}
+
+.modal-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+/* ==================== ENTRE EM CONTATO ==================== */
+
+.form-label{
+    color:white;
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-top: 2px solid rgba(102, 126, 234, 0.1);
+}
+
+.text-muted-small{
+    color:#554a91;
+}
+
+.text-muted-text-decoration-none{
+    color:#554a91;
+}
+
+footer a {
+    transition: var(--transition);
+}
+
+footer a:hover {
+    color: #667eea !important;
+    transform: translateX(5px);
+    display: inline-block;
+}
+
+.btn-outline-light {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    transition: var(--transition);
+}
+
+.btn-outline-light:hover {
+    background: #667eea;
+    border-color: #667eea;
+    transform: translateY(-3px);
+}
+
+/* ==================== ANIMAÇÕES ==================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+section {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.book-card {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* ==================== RESPONSIVIDADE ==================== */
+
+/* Tablets (768px e acima) */
+@media (max-width: 768px) {
+    .display-3 {
+        font-size: 2rem !important;
+    }
+
+    .display-5 {
+        font-size: 1.8rem !important;
+    }
+
+    .carousel-item {
+        height: 350px !important;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .nav-link {
+        margin: 0.25rem 0;
+    }
+
+    .book-card {
+        margin-bottom: 1rem;
+    }
+
+    section h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Mobile (menos de 576px) */
+@media (max-width: 576px) {
+    .display-3 {
+        font-size: 1.5rem !important;
+    }
+
+    .display-5 {
+        font-size: 1.4rem !important;
+    }
+
+    .carousel-item {
+        height: 280px !important;
+    }
+
+    .lead {
+        font-size: 0.95rem;
+    }
+
+    .btn-lg {
+        padding: 0.6rem 1rem !important;
+        font-size: 0.95rem !important;
+    }
+
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .row {
+        margin-left: -0.5rem;
+        margin-right: -0.5rem;
+    }
+
+    .col-md-6,
+    .col-lg-4 {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .card {
+        margin-bottom: 0.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem !important;
+    }
+
+    h5 {
+        font-size: 1rem !important;
+    }
+
+    .modal-dialog {
+        margin: 1rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .display-3 {
+        font-size: 1.2rem !important;
+    }
+
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .card-body {
+        padding: 0.75rem;
+    }
+}
+
+/* ==================== ACESSIBILIDADE ==================== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Modo escuro (preferência do sistema) */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a;
+        color: #e0e0e0;
+    }
+
+    .card {
+        background-color: #2d2d2d;
+        color: #e0e0e0;
+    }
+
+    .card-title {
+        color: #fff;
+    }
+
+    .form-control,
+    .form-select {
+        background-color: #2d2d2d;
+        color: #e0e0e0;
+        border-color: #444;
+    }
+
+    .modal-content {
+        background-color: #2d2d2d;
+        color: #e0e0e0;
+    }
+}
+
+/* ==================== UTILITÁRIOS ==================== */
+.text-gradient {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.shadow-custom {
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+}
+
+.transition-all {
+    transition: var(--transition);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* Scroll bar customizado */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #667eea;
+}
+
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar-menu" data-bs-offset="70">
+    
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm" id="navbar-menu">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#home">
+                <i class="fas fa-book-open me-2"></i>Biblioteca Digital
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#infantil">Infantil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#didatico">Didático</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cursos">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#matematica">Matemática</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#fisica">Física</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="home" class="hero-section py-5">
+        <div class="container-fluid">
+            <div id="carouselHero" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselHero" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselHero" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselHero" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 500px;">
+                        <div class="d-flex align-items-center justify-content-center h-100">
+                            <div class="text-center text-white">
+                                <h1 class="display-3 fw-bold mb-4">Bem-vindo à Biblioteca Digital</h1>
+                                <p class="lead mb-4">Acesse milhares de livros em diferentes categorias</p>
+                                <button class="btn btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#modalCadastro">
+                                    <i class="fas fa-user-plus me-2"></i>Cadastre-se Agora
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); height: 500px;">
+                        <div class="d-flex align-items-center justify-content-center h-100">
+                            <div class="text-center text-white">
+                                <h2 class="display-3 fw-bold mb-4">Explore Novos Mundos</h2>
+                                <p class="lead mb-4">Descubra histórias incríveis e conhecimento infinito</p>
+                                <a href="#infantil" class="btn btn-light btn-lg">
+                                    <i class="fas fa-arrow-down me-2"></i>Explorar Categorias
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); height: 500px;">
+                        <div class="d-flex align-items-center justify-content-center h-100">
+                            <div class="text-center text-white">
+                                <h2 class="display-3 fw-bold mb-4">Aprenda Sem Limites</h2>
+                                <p class="lead mb-4">Educação de qualidade ao alcance de suas mãos</p>
+                                <a href="#cursos" class="btn btn-light btn-lg">
+                                    <i class="fas fa-graduation-cap me-2"></i>Ver Cursos
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselHero" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselHero" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SEÇÃO INFANTIL ==================== -->
+    <section id="infantil" class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3">
+                        <i class="fas fa-child me-3 text-primary"></i>Livros Infantis
+                    </h2>
+                    <p class="lead text-muted">Histórias mágicas e educativas para as crianças explorarem mundos imaginários</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card book-card h-100 shadow-sm">
+                        <div class="book-cover" style="background: linear-gradient(135deg, #FF6B6B, #FFE66D);">
+                            <i class="fas fa-book fa-3x text-white"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">O Pequeno Príncipe</h5>
+                            <p class="card-text text-muted">Uma aventura poética sobre amizade e descoberta</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Disponível</span>
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-download me-1"></i>Ler
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card book-card h-100 shadow-sm">
+                        <div class="book-cover" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);">
+                            <i class="fas fa-book fa-3x text-white"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Alice no País das Maravilhas</h5>
+                            <p class="card-text text-muted">Uma jornada fantástica cheia de surpresas</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Disponível</span>
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-download me-1"></i>Ler
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card book-card h-100 shadow-sm">
+                        <div class="book-cover" style="background: linear-gradient(135deg, #F093FB, #F5576C);">
+                            <i class="fas fa-book fa-3x text-white"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Cinderela</h5>
+                            <p class="card-text text-muted">O clássico conto de fadas reimaginado</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Disponível</span>
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-download me-1"></i>Ler
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SEÇÃO DIDÁTICO ==================== -->
+    <section id="didatico" class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3">
+                        <i class="fas fa-chalkboard me-3 text-success"></i>Livros Didáticos
+                    </h2>
+                    <p class="lead-text-muted-w">Materiais educacionais estruturados para apoiar o aprendizado em sala de aula</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card book-card h-100 shadow-sm">
+                        <div class="book-cover" style="background: linear-gradient(135deg, #667EEA, #764BA2);">
+                            <i class="fas fa-book fa-3x text-white"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Português Essencial</h5>
+                            <p class="card-text text-muted">Gramática e redação para todos os níveis</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Disponível</span>
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-download me-1"></i>Ler
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card book-card h-100 shadow-sm">
+                        <div class="book-cover" style="background: linear-gradient(135deg, #FA709A, #FEE140);">
+                            <i class="fas fa-book fa-3x text-white"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">História do Brasil</h5>
+                            <p class="card-text text-muted">Desde a colonização até os dias atuais</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Disponível</span>
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-download me-1"></i>Ler
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card book-card h-100 shadow-sm">
+                        <div class="book-cover" style="background: linear-gradient(135deg, #30CFD0, #330867);">
+                            <i class="fas fa-book fa-3x text-white"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Ciências Naturais</h5>
+                            <p class="card-text text-muted">Biologia, química e física integradas</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Disponível</span>
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-download me-1"></i>Ler
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SEÇÃO CURSOS ==================== -->
+    <section id="cursos" class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3">
+                        <i class="fas fa-graduation-cap me-3 text-info"></i>Livros de Cursos
+                    </h2>
+                    <p class="lead text-muted">Conteúdos especializados para desenvolvimento profissional e pessoal</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card book-card h-100 shadow-sm">
+                        <div class="book-cover" style="background: linear-gradient(135deg, #A8EDEA, #FED6E3);">
+                            <i class="fas fa-book fa-3x text-white"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Programação em Python</h5>
+                            <p class="card-text text-muted">Do iniciante ao desenvolvedor profissional</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Disponível</span>
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-download me-1"></i>Ler
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card book-card h-100 shadow-sm">
+                        <div class="book-cover" style="background: linear-gradient(135deg, #FF9A56, #FF6A88);">
+                            <i class="fas fa-book fa-3x text-white"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Web Design Moderno</h5>
+                            <p class="card-text text-muted">HTML, CSS e JavaScript na prática</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Disponível</span>
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-download me-1"></i>Ler
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card book-card h-100 shadow-sm">
+                        <div class="book-cover" style="background: linear-gradient(135deg, #667EEA, #764BA2);">
+                            <i class="fas fa-book fa-3x text-white"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Marketing Digital</h5>
+                            <p class="card-text text-muted">Estratégias e ferramentas para crescer online</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Disponível</span>
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-download me-1"></i>Ler
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SEÇÃO MATEMÁTICA ==================== -->
+    <section id="matematica" class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3">
+                        <i class="fas fa-calculator me-3 text-warning"></i>Livros de Matemática
+                    </h2>
+                    <p class="lead-text-muted-w">Conceitos fundamentais e avançados da matemática explicados de forma clara</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card book-card h-100 shadow-sm">
+                        <div class="book-cover" style="background: linear-gradient(135deg, #FFD89B, #19547B);">
+                            <i class="fas fa-book fa-3x text-white"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Álgebra Linear</h5>
+                            <p class="card-text text-muted">Matrizes, vetores e transformações lineares</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Disponível</span>
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-download me-1"></i>Ler
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card book-card h-100 shadow-sm">
+                        <div class="book-cover" style="background: linear-gradient(135deg, #FF6E7F, #BFE9FF);">
+                            <i class="fas fa-book fa-3x text-white"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Cálculo Diferencial</h5>
+                            <p class="card-text text-muted">Limites, derivadas e integrais</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Disponível</span>
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-download me-1"></i>Ler
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card book-card h-100 shadow-sm">
+                        <div class="book-cover" style="background: linear-gradient(135deg, #4FACFE, #00F2FE);">
+                            <i class="fas fa-book fa-3x text-white"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Geometria Analítica</h5>
+                            <p class="card-text text-muted">Coordenadas, retas e cônicas</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Disponível</span>
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-download me-1"></i>Ler
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SEÇÃO FÍSICA ==================== -->
+    <section id="fisica" class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3">
+                        <i class="fas fa-atom me-3 text-danger"></i>Livros de Física
+                    </h2>
+                    <p class="lead text-muted">Explore os mistérios do universo através da física clássica e moderna</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card book-card h-100 shadow-sm">
+                        <div class="book-cover" style="background: linear-gradient(135deg, #FF6B9D, #C44569);">
+                            <i class="fas fa-book fa-3x text-white"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Mecânica Clássica</h5>
+                            <p class="card-text text-muted">Movimento, força e energia</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Disponível</span>
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-download me-1"></i>Ler
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card book-card h-100 shadow-sm">
+                        <div class="book-cover" style="background: linear-gradient(135deg, #4158D0, #C850C0);">
+                            <i class="fas fa-book fa-3x text-white"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Eletromagnetismo</h5>
+                            <p class="card-text text-muted">Campos elétricos e magnéticos</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Disponível</span>
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-download me-1"></i>Ler
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card book-card h-100 shadow-sm">
+                        <div class="book-cover" style="background: linear-gradient(135deg, #0093E9, #80D0C7);">
+                            <i class="fas fa-book fa-3x text-white"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Física Quântica</h5>
+                            <p class="card-text text-muted">O mundo subatômico revelado</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Disponível</span>
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-download me-1"></i>Ler
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SEÇÃO CONTATO ==================== -->
+    <section id="contato" class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3">
+                        <i class="fas fa-envelope me-3 text-primary"></i>Entre em Contato
+                    </h2>
+                    <p class="lead-text-muted">Tem dúvidas? Queremos ouvir você!</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card text-center p-4 shadow-sm">
+                        <i class="fas fa-phone fa-2x text-primary mb-3"></i>
+                        <h5>Telefone</h5>
+                        <p class="lead-text-muted">(61)9 9999-9999</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center p-4 shadow-sm">
+                        <i class="fas fa-envelope fa-2x text-primary mb-3"></i>
+                        <h5>Email</h5>
+                        <p class="lead-text-muted">contato@biblioteca.com</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center p-4 shadow-sm">
+                        <i class="fas fa-map-marker-alt fa-2x text-primary mb-3"></i>
+                        <h5>Endereço</h5>
+                        <p class="lead-text-muted">Brasília-DF- Brasil</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6 mx-auto">
+                    <form id="formContato" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome Completo</label>
+                            <input type="text" class="form-control" id="nome" name="nome" required>
+                            <div class="invalid-feedback">Por favor, insira seu nome.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                            <div class="invalid-feedback">Por favor, insira um email válido.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="mensagem" class="form-label">Mensagem</label>
+                            <textarea class="form-control" id="mensagem" name="mensagem" rows="4" required></textarea>
+                            <div class="invalid-feedback">Por favor, insira uma mensagem.</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                            <i class="fas fa-paper-plane me-2"></i>Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h6 class="fw-bold mb-3">
+                        <i class="fas fa-book-open me-2"></i>Biblioteca Digital
+                    </h6>
+                    <p class="text-muted-small">Seu portal de leitura e aprendizado sem limites.</p>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h6 class="fw-bold mb-3">Links Rápidos</h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="#infantil" class="text-muted-text-decoration-none">Infantil</a></li>
+                        <li><a href="#didatico" class="text-muted-text-decoration-none">Didático</a></li>
+                        <li><a href="#cursos" class="text-muted-text-decoration-none">Cursos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="fw-bold mb-3">Redes Sociais</h6>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="btn btn-sm btn-outline-light">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="btn btn-sm btn-outline-light">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="btn btn-sm btn-outline-light">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="btn btn-sm btn-outline-light">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-secondary">
+            <div class="text-center text-muted small">
+                <p>&copy; 2024 Biblioteca Digital. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== MODAL CADASTRO ==================== -->
+    <div class="modal fade" id="modalCadastro" tabindex="-1" aria-labelledby="modalCadastroLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="modalCadastroLabel">
+                        <i class="fas fa-user-plus me-2"></i>Cadastre-se na Biblioteca
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formCadastro" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="cadastroNome" class="form-label">Nome Completo</label>
+                            <input type="text" class="form-control" id="cadastroNome" name="nome" required>
+                            <div class="invalid-feedback">Por favor, insira seu nome.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cadastroEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="cadastroEmail" name="email" required>
+                            <div class="invalid-feedback">Por favor, insira um email válido.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cadastroSenha" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="cadastroSenha" name="senha" required>
+                            <div class="invalid-feedback">Por favor, insira uma senha.</div>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="termos" name="termos" required>
+                            <label class="form-check-label" for="termos">
+                                Concordo com os <a href="#" class="text-decoration-none">Termos de Serviço</a>
+                            </label>
+                            <div class="invalid-feedback">Você deve concordar com os termos.</div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" form="formCadastro" class="btn btn-primary">
+                        <i class="fas fa-check me-2"></i>Cadastrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
